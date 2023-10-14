@@ -1,0 +1,2 @@
+1.运行Install_GlassesShop-arm64.bat安装apk，如果之前安装过，安装之前运行一下Uninstall_GlassesShop-arm64.bat卸载掉之前安装的版本。
+2.把Role目录放到Android根目录，人物头像数据会从Role目录里读取。
