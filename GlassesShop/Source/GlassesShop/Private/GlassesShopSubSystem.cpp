@@ -146,7 +146,7 @@ void UGlassesShopSubsystem::SetGlass(const FString& GlassName)
 
 bool UGlassesShopSubsystem::LoadObj(const FString& ObjFilePath)
 {
-	if (ObjFilePath.IsEmpty())
+	if (RoleActor == nullptr || ObjFilePath.IsEmpty())
 	{
 		return false;
 	}

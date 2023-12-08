@@ -6,6 +6,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Camera/CameraActor.h"
 #include "Materials/MaterialInterface.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 ARoleActor::ARoleActor()
@@ -74,6 +75,7 @@ void ARoleActor::LoadRole(const FString& Name)
 		if (Mesh != nullptr)
 		{
 			RoleMesh->SetStaticMesh(Mesh);
+			//RoleMesh->AddLocalOffset(FVector(0.f, 0.f, 100.f));
 		}
 	}
 
@@ -140,11 +142,13 @@ void ARoleActor::AddYawInput(float DeltaYaw)
 {
 	//UE_LOG(LogTemp, Log, TEXT("AddYawInput:%f"), DeltaYaw);
 
+	//FRotator Rotator(DeltaYaw, 0.f, 0.f);
+	//AddActorLocalRotation(Rotator);
 	FRotator Rotator(0.f, DeltaYaw, 0.f);
-
 	if (Camera != nullptr)
 	{
 		Camera->AddActorWorldRotation(Rotator);
+		//UKismetMathLibrary::RotatorFromAxisAndAngle();
 		//Camera->AddActorWorldOffset(FVector(DeltaYaw, 0.f, 0.f));
 	}
 	//APlayerCameraManager* CameraManager = UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0);
